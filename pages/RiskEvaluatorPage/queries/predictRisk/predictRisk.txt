@@ -1,0 +1,10 @@
+[
+  {{InputAge.text}}, 
+  {{InputEducation.text}}, 
+  {{InputMarried.text}}, 
+  {{InputKids.text}}, 
+  {{InputOccupation.text}}, 
+  {{InputIncome.text.replaceAll(",", "")}}, 
+  {{InputRisk.text}}, 
+  {{InputNetWorth.text.replaceAll(",", "")}}
+]
