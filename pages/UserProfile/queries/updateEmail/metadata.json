@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "67fb777957004e50fd1189d0_3260036c-19fe-440d-8fe2-d6bc4953e2d4",
-  "id": "SignupPage_insertNewUser",
+  "gitSyncId": "67fb777957004e50fd1189d0_704f630a-1243-4b1d-a31f-482b323ad87d",
+  "id": "UserProfile_updateEmail",
   "pluginId": "google-sheets-plugin",
   "pluginType": "SAAS",
   "unpublishedAction": {
@@ -8,7 +8,7 @@
       "encodeParamsToggle": true,
       "formData": {
         "command": {
-          "data": "INSERT_ONE"
+          "data": "UPDATE_ONE"
         },
         "entityType": {
           "data": "ROWS"
@@ -29,19 +29,21 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\n  \"Username\": {{ InputUsername.text }},\n  \"Password\": {{ InputPassword.text }},\n\t\"First Name\": {{InputFirstName.text}},\n\t\"Last Name\": {{InputLastName.text}},\n\t\"Email\":{{InputEmail.text}}\n}"
+          "data": "{\n  \"Username\": \"{{appsmith.store.Username}}\",\n  \"Email\": \"{{EmailInput.text}}\"\n}"
         },
         "sheetName": {
           "data": "UserCredentials"
         },
         "sheetUrl": {
-          "data": "https://docs.google.com/spreadsheets/d/1xkNJcPNbo-blvEkKemgWtZgR9w0GS75__juWZ1V09co/edit"
+          "componentData": "https://docs.google.com/spreadsheets/d/1xkNJcPNbo-blvEkKemgWtZgR9w0GS75__juWZ1V09co/edit",
+          "data": "https://docs.google.com/spreadsheets/d/1xkNJcPNbo-blvEkKemgWtZgR9w0GS75__juWZ1V09co/edit",
+          "viewType": "json"
         },
         "smartSubstitution": {
           "data": true
         },
         "tableHeaderIndex": {
-          "data": "1"
+          "data": "{{ getUserRow.data[0]._rowIndex }}"
         },
         "where": {
           "data": {
@@ -62,11 +64,14 @@
     "dynamicBindingPathList": [
       {
         "key": "formData.rowObjects.data"
+      },
+      {
+        "key": "formData.tableHeaderIndex.data"
       }
     ],
     "executeOnLoad": false,
-    "name": "insertNewUser",
-    "pageId": "SignupPage",
+    "name": "updateEmail",
+    "pageId": "UserProfile",
     "userSetOnLoad": false
   }
 }

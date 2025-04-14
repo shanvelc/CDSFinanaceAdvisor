@@ -1,7 +1,7 @@
 {
   "appIsExample": false,
   "appLayout": {
-    "type": "MOBILE"
+    "type": "DESKTOP"
   },
   "applicationDetail": {
     "appPositioning": {
@@ -45,10 +45,18 @@
     {
       "id": "SignupPage",
       "isDefault": false
+    },
+    {
+      "id": "UserDashboard",
+      "isDefault": false
+    },
+    {
+      "id": "RiskEvaluatorPage",
+      "isDefault": false
     }
   ],
   "unpublishedAppLayout": {
-    "type": "MOBILE"
+    "type": "DESKTOP"
   },
   "unpublishedApplicationDetail": {
     "appPositioning": {

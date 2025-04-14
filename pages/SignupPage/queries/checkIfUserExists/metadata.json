@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "67fb777957004e50fd1189d0_3260036c-19fe-440d-8fe2-d6bc4953e2d4",
-  "id": "SignupPage_insertNewUser",
+  "gitSyncId": "67fb777957004e50fd1189d0_636f6c64-c7e4-4d5a-a6fe-6b97bbe1dd60",
+  "id": "SignupPage_checkIfUserExists",
   "pluginId": "google-sheets-plugin",
   "pluginType": "SAAS",
   "unpublishedAction": {
@@ -8,7 +8,7 @@
       "encodeParamsToggle": true,
       "formData": {
         "command": {
-          "data": "INSERT_ONE"
+          "data": "FETCH_MANY"
         },
         "entityType": {
           "data": "ROWS"
@@ -28,9 +28,6 @@
         "range": {
           "data": ""
         },
-        "rowObjects": {
-          "data": "{\n  \"Username\": {{ InputUsername.text }},\n  \"Password\": {{ InputPassword.text }},\n\t\"First Name\": {{InputFirstName.text}},\n\t\"Last Name\": {{InputLastName.text}},\n\t\"Email\":{{InputEmail.text}}\n}"
-        },
         "sheetName": {
           "data": "UserCredentials"
         },
@@ -40,11 +37,26 @@
         "smartSubstitution": {
           "data": true
         },
+        "sortBy": {
+          "data": [
+            {
+              "column": "",
+              "order": "Ascending"
+            }
+          ]
+        },
         "tableHeaderIndex": {
           "data": "1"
         },
         "where": {
           "data": {
+            "children": [
+              {
+                "condition": "EQ",
+                "key": "Username",
+                "value": "{{InputUsername.text}}"
+              }
+            ],
             "condition": "AND"
           }
         }
@@ -61,11 +73,11 @@
     },
     "dynamicBindingPathList": [
       {
-        "key": "formData.rowObjects.data"
+        "key": "formData.where.data.children[0].value"
       }
     ],
     "executeOnLoad": false,
-    "name": "insertNewUser",
+    "name": "checkIfUserExists",
     "pageId": "SignupPage",
     "userSetOnLoad": false
   }

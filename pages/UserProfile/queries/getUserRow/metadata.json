@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "67fb777957004e50fd1189d0_3260036c-19fe-440d-8fe2-d6bc4953e2d4",
-  "id": "SignupPage_insertNewUser",
+  "gitSyncId": "67fb777957004e50fd1189d0_30c46e27-8eda-407d-8f37-75df4d793fd3",
+  "id": "UserProfile_getUserRow",
   "pluginId": "google-sheets-plugin",
   "pluginType": "SAAS",
   "unpublishedAction": {
@@ -8,7 +8,7 @@
       "encodeParamsToggle": true,
       "formData": {
         "command": {
-          "data": "INSERT_ONE"
+          "data": "FETCH_MANY"
         },
         "entityType": {
           "data": "ROWS"
@@ -28,9 +28,6 @@
         "range": {
           "data": ""
         },
-        "rowObjects": {
-          "data": "{\n  \"Username\": {{ InputUsername.text }},\n  \"Password\": {{ InputPassword.text }},\n\t\"First Name\": {{InputFirstName.text}},\n\t\"Last Name\": {{InputLastName.text}},\n\t\"Email\":{{InputEmail.text}}\n}"
-        },
         "sheetName": {
           "data": "UserCredentials"
         },
@@ -40,13 +37,28 @@
         "smartSubstitution": {
           "data": true
         },
+        "sortBy": {
+          "data": [
+            {
+              "column": "",
+              "order": "Ascending"
+            }
+          ]
+        },
         "tableHeaderIndex": {
           "data": "1"
         },
         "where": {
-          "data": {
+          "componentData": {
+            "children": [
+              {
+                "condition": "LT"
+              }
+            ],
             "condition": "AND"
-          }
+          },
+          "data": "Username = \"{{appsmith.store.Username}}",
+          "viewType": "json"
         }
       },
       "paginationType": "NONE",
@@ -61,12 +73,12 @@
     },
     "dynamicBindingPathList": [
       {
-        "key": "formData.rowObjects.data"
+        "key": "formData.where.data"
       }
     ],
-    "executeOnLoad": false,
-    "name": "insertNewUser",
-    "pageId": "SignupPage",
-    "userSetOnLoad": false
+    "executeOnLoad": true,
+    "name": "getUserRow",
+    "pageId": "UserProfile",
+    "userSetOnLoad": true
   }
 }
